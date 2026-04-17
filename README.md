@@ -2,12 +2,7 @@ programa { inclua biblioteca Util --> u
 
 funcao inicio()
 {
-    inteiro pos1 = 0
-    inteiro pos2 = 0
-    inteiro dado
-    inteiro turno = 1
-    inteiro i
-    inteiro opcao
+    inteiro pos1 = 0, pos2 = 0,dado,turno = 1, i, opcao
 
     enquanto (pos1 < 25 e pos2 < 25)
     {
