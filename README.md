@@ -63,13 +63,13 @@ enquanto (pos1 < 25 e pos2 < 25)
 
         se (turno == 1)
         {
-           pos1 += dado
-            turno = 2
+           pos1= pos1 + dado
+            turno= 2
         }
         senao
         {
-            pos2 = pos2 + dado
-            turno = 1
+            pos2= pos2 + dado
+            turno= 1
         }
     }
     senao
