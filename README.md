@@ -1,12 +1,12 @@
 programa { inclua biblioteca Util --> u
 
-funcao inicio() { inteiro pos1 = 0, pos2 = 0,dado,turno = 1, i, opcao
+funcao inicio() { inteiro pos1 = 0, pos2 = 0, dado, turno = 1, i, opcao
 
 enquanto (pos1 < 25 e pos2 < 25)
 {
  
     escreva("\n-----------------------------")
-    escreva("\n>>> FUGA DO MUNDO INVERTIDO <<<")
+    escreva("\n>>>>> FUGA DO MUNDO INVERTIDO <<<<<")
     escreva("\n-----------------------------\n")
 
     // DESENHAR TABULEIRO
