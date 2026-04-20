@@ -39,11 +39,11 @@ enquanto (pos1 < 25 e pos2 < 25)
     // TURNO
     se (turno == 1)
     {
-        escreva("\nTurno do Jogador 1\n")
+        escreva("\QUE OS JOGOS COMEÇEM! VEZ DE ELEVEN. 1\n")
     }
     senao
     {
-        escreva("\nTurno do Jogador 2\n")
+        escreva("\nQUE OS JOGOS COMEÇEM! VEZ DE WILL. 2\n")
     }
 
     escreva("1 - Jogar dado\n")
@@ -179,10 +179,10 @@ escreva("\n=============================\n")
 
 se (pos1 >= 20)
 {
-    escreva("🏆 \nBOA! Jogador 1 escapou do Vecna!")
+    escreva("🏆 \n BOA! ELEVEN CONSEGUIU ESCAPAR DO VECNA!")
 }
 senao se (pos2 >= 20)
 {
-    escreva("🏆 \nUFA! Jogador 2 está a salvo!")
+    escreva("🏆 \n UFA! WILL ESTÁ A SALVO! ")
 }
 } }
