@@ -69,13 +69,13 @@ enquanto (pos1 < 25 e pos2 < 25)
               //COMEÇO DO JODO E DAS REGRAS PARA CADA CASA.
               //AQUI É A PARTE DA ELEVEN 
               
-                escreva(">>>>> CASA 2 <<<<< Que sorte! Sua saída está cada vez mais próxima. Avance para a CASA 5 \n")   
+                escreva(">>>>> CASA 2 <<<<< QUE SORTE! SUA SAÍDA ESTÁ CADA VEZ MAIS PRÓXIMA. AVANÇE PARA A CASA 05. \n")   
                 posicao1 == 5
             }
 
             se (posicao1 == 3)
             {
-                escreva(">>>>> CASA 3 - Jogue outro dado! 🎲<<<<<\n")
+                escreva(">>>>> CASA 3 - JOGUE OUTRO DADO! 🎲<<<<<\n")
                 dadoAd = u.sorteia(1,3)
                 posicao1 = posicao1 + dadoAd
             }
@@ -99,7 +99,7 @@ enquanto (pos1 < 25 e pos2 < 25)
             }
             se (posicao1 == 15)
             {
-              escreva(">>>>>> CASA 15 - SHOWTIME!!! Cante uma música da trilha sonora de stranger things ou volte 02 casas 🎤🎸.(aperte 0 se não cantar) <<<<<")
+              escreva(">>>>>> CASA 15 - SHOWTIME!!! CANTE UMA MÚSICA DA TRILHA SONORA OU VOLTE 02 CASAS. 🎤🎸.(aperte 0 se não cantar) <<<<<")
                 leia(m)
                 se (m == 0) {
                 posicao1 = posicao1 - 2}
@@ -107,7 +107,7 @@ enquanto (pos1 < 25 e pos2 < 25)
             }
             se (posicao1 == 19)
             {
-              escreva(">>>>> CASA 19 - AH, NÃO! Você foi pego pelos demogorgons! Volte para a casa 1 <<<<<")
+              escreva(">>>>> CASA 19 - AH, NÃO! VOCÊ FOI PEGO PELOS DEMOGORGONS! VOLTE PARA A CASA 01 <<<<<")
               posicao1 == 1
             }
             // FIM DAS REGRAS DA PARTE DA ELEVEN
@@ -118,17 +118,17 @@ enquanto (pos1 < 25 e pos2 < 25)
         {
             pos2= pos2 + dado
 
-            //COMEÇO DA PARTE DO WILL (REGRAS)
+            //COMEÇO DA PARTE DO WILL
 
              se (posicao1 == 2)
             {
-                escreva(">>>>> CASA 2 <<<<< Que sorte! Sua saída está mais próxima. Avance para a CASA 5 \n")   // eleven regras aqui
+                escreva(">>>>> CASA 2 <<<<< QUE SORTE! SUA SAÍDA ESTÁ CADA VEZ MAIS PRÓXIMA. AVANÇE PARA A CASA 05. \n")  
                 posicao1 == 5
             }
 
             se (posicao1 == 3)
             {
-                escreva(">>>>> CASA 3 - Jogue outro dado! 🎲<<<<<\n")
+                escreva(">>>>> CASA 3 - JOGUE OUTRO DADO! 🎲<<<<<\n")
                 dadoAd = u.sorteia(1,3)
                 posicao1 = posicao1 + dadoAd
             }
@@ -152,7 +152,7 @@ enquanto (pos1 < 25 e pos2 < 25)
             }
             se (posicao1 == 15)
             {
-              escreva(">>>>>> CASA 15 - SHOWTIME!!! Cante uma música da trilha sonora de stranger things ou volte 02 casas 🎤🎸.(aperte 0 se não cantar) <<<<<")
+              escreva(">>>>>> CASA 15 - SHOWTIME!!! CANTE UMA MÚSICA DA TRILHA SONORA OU VOLTE 02 CASAS. 🎤🎸.(aperte 0 se não cantar) <<<<<")
                 leia(m)
                 se (m == 0) {
                 posicao1 = posicao1 - 2}
@@ -160,7 +160,7 @@ enquanto (pos1 < 25 e pos2 < 25)
             }
             se (posicao1 == 19)
             {
-              escreva(">>>>> CASA 19 - AH, NÃO! Você foi pego pelos demogorgons! Volte para a casa 1 <<<<<")
+              escreva(">>>>> CASA 19 - AH, NÃO! VOCÊ FOI PEGO PELOS DEMOGORGONS! VOLTE PARA A CASA 01 <<<<<")
               posicao1 == 1
             }
             // FIM DAS REGRAS DA PARTE DO WILL!!!
