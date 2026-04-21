@@ -64,7 +64,7 @@ enquanto (pos1 < 25 e pos2 < 25)
         se (turno == 1)
         {
            pos1= pos1 + dado
-             se (posicao1 == 2)
+             se ("posicao1 == 2")
             {
               //COMEÇO DO JODO E DAS REGRAS PARA CADA CASA.
               //AQUI É A PARTE DA ELEVEN 
