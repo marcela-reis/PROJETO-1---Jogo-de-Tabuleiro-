@@ -63,7 +63,7 @@ programa {
                 
                 caso 1:
                   se (vez == 1 e bloqueioP1 == verdadeiro) {
-                    escreva("\n 🕸️ Ah não! As vinhas do Mundo Invertido prenderam seus pés. ELEVEN está presa e perdeu a vez. 🕸️ ")
+                    escreva("\n 🕸️ Ah não! As vinhas do Mundo Invertido prenderam os pés de ELEVEN. Ela está presa e perdeu a vez. 🕸️ ")
                     bloqueioP1 = falso
                     vez = 2
 						      }senao se (vez == 2 e bloqueioP2 == verdadeiro) {
@@ -87,7 +87,7 @@ programa {
 
                                                 
                         caso 3:
-                          posicao1 = posicao1 + u.sorteia(1, 3) escreva("\n 🍀 [CASA 3] Poder encontrado! ELEVEN recebeu um dado de 3 lados. 🍀") 
+                          posicao1 = posicao1 + u.sorteia(1, 3) escreva("\n 🍀 [CASA 3]  Que sorte! Poder encontrado: ELEVEN recebeu um dado de 3 lados. 🍀") 
                         pare
 
                                                 
@@ -122,12 +122,12 @@ programa {
 
                                                 
                         caso 22:
-                          posicao1 = 11 escreva("\n 🎰 [CASA 22] Que azar! Caminho errado. Volte metade do caminho. 🎰")
+                          posicao1 = 11 escreva("\n 🎰 [CASA 22] Que azar! Caminho errado. Retorne para a casa 11. 🎰")
                         pare
                       }
 
                       se (posicao1 >= 25) { 
-                        escreva("\n ELEVEN 👧🏻 VENCEU!") 
+                        escreva("\n Parabéns! ELEVEN 👧🏻 conseguiu escapar do mundo invertido e é a grande vencedora! 🏆 ") 
                         vitoriasEleven = vitoriasEleven + 1 
                         partidaAtiva = falso 
                       } senao { 
@@ -139,12 +139,12 @@ programa {
                       escolha(posicao2){
 
                         caso 2:
-                          posicao2 = 5 escreva("\n[CASA 2] Atalho!Eleven usou a mente e te jogou pra casa 5!") 
+                          posicao2 = 5 escreva("\n 🚪[CASA 2] Um portal se abre! Avance para a casa 5.🚪") 
                         pare
 
                                                 
                         caso 3:
-                          posicao2 = posicao2 + u.sorteia(1, 3) escreva("\n[CASA 3] O grupo te ajudou! Role mais um dado pequeno de 3 lados...") 
+                          posicao2 = posicao2 + u.sorteia(1, 3) escreva("\n 🍀[CASA 3] Que sorte! Poder encontrado: WILL recebeu um dado de 3 lados. 🍀") 
                         pare
 
                                                 
@@ -157,17 +157,17 @@ programa {
                           inteiro t = posicao2
 									        posicao2 = posicao1 
 									        posicao1 = t 
-									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar do Will e ele veio pro seu!") 
+									        escreva("\n 🔄 [CASA 10] Anomalia! ELEVEN e WILL trocam de posição. 🔄") 
                         pare
 
                                                 
                         caso 12:
-                          posicao2 = posicao2 - 2 escreva("\n[CASA 12] Badaladas de relógio... O Vecna te marcou. Recue 2 casas agora!")
+                          posicao2 = posicao2 - 2 escreva("\n ⚡ [CASA 12] Perigo a frente! Volte 2 casas. ⚡")
                         pare
 
                                                 
                         caso 15:
-                          escreva("\n[CASA 15] Cante ou digite 0 para voltar 2: ")
+                          escreva("\n 🎸[CASA 15] Hora do show! Cante uma música da trilha sonora ou digite 0 para voltar duas casas. 🎸")
 									        leia(m)
 									          se (m == 0) { 
                               posicao2 = posicao2 - 2 
@@ -176,17 +176,17 @@ programa {
 
                                                 
                         caso 19:
-                          posicao2 = 1 escreva("\n[CASA 19] Volte ao início!") 
+                          posicao2 = 1 escreva("\n 👾 [CASA 19] Ah não! Os demogorgons pegaram WILL e ele está de volta ao inicio! 👾") 
                         pare
 
                                                 
                         caso 22:
-                          posicao2 = 11 escreva("\n[CASA 22] Relógio de Vecna! Volte metade do caminho")
+                          posicao2 = 11 escreva("\n 🎰 [CASA 22] Que azar! Caminho errado. Retorne para a casa 11. 🎰")
                         pare
                       }
 
                       se (posicao2 >= 25) { 
-                        escreva("\nWILL VENCEU!") 
+                        escreva("\n Parabéns! WILL 🧒🏻 conseguiu escapar do mundo invertido e é o grande vencedor! 🏆") 
                         vitoriasWill = vitoriasWill + 1 
                         partidaAtiva = falso 
 								      }senao { vez = 1 }
@@ -204,17 +204,17 @@ programa {
         pare
 
         caso 2:
-          escreva("\n=== PLACAR GERAL ===")
-          escreva("\nEleven: ", vitoriasEleven)
-          escreva("\nWill: ", vitoriasWill, "\n")
+          escreva("\n 🎮 === PLACAR GERAL === 🎮")
+          escreva("\n ELEVEN 👧🏻: ", vitoriasEleven)
+          escreva("\n WILL 🧒🏻: ", vitoriasWill, "\n")
         pare
 
         caso 3:
-          escreva("\nPortal fechado! FIM DE JOGO!")
+          escreva("\n 🕰️ PORTAL FECHADO! FIM DE JOGO! 🕰️")
         pare
 
         caso contrario:
-          escreva("Digite um número valido")
+          escreva("Digite um número valido! ")
       }
     }enquanto(opcaoMenu != 3)
   }
