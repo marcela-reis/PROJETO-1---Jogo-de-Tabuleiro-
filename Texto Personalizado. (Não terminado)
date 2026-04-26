@@ -1,0 +1,221 @@
+programa {
+	inclua biblioteca Util --> u
+
+  funcao inicio() {
+    inteiro vitoriasEleven = 0, vitoriasWill = 0
+		inteiro opcaoMenu = 0
+
+    faca{
+      escreva("\n-------------------------------------")
+
+			escreva("\n    >>>>>🌌🕙 STRANGER THINGS – FUGA DO MUNDO INVERTIDO 🌌🕙<<<<< ")
+			escreva("\n-------------------------------------")
+			escreva("\n1. Jogar Partida")
+			escreva("\n2. Verificar Placar")
+			escreva("\n3. Fechar o jogo")
+			escreva("\nEscolha: ")
+			leia(opcaoMenu)
+
+      escolha(opcaoMenu){
+        caso 1:
+          inteiro posicao1 = 1, posicao2 = 1, vez = 1, dado, opcaoTurno, m
+				  logico partidaAtiva = verdadeiro
+				  logico bloqueioP1 = falso, bloqueioP2 = falso
+          
+          enquanto(partidaAtiva){
+            escreva("  \n ⏳  ----- TRILHA DO MUNDO INVERTIDO -----  ⏳️\n")
+
+            para (inteiro i = 1; i <= 25; i++) {
+              se (i == posicao1 e i == posicao2) {
+                escreva("[Eleven e Will]") 
+              }
+              senao se (i == posicao1) { 
+                escreva("[ELEVEN]") 
+              }
+              senao se (i == posicao2) {
+                escreva("[WILL]") 
+              }
+              senao {
+                escreva("[ ", i, " ]") 
+              }
+					  }
+
+            se (vez == 1) { 
+						  escreva("\n\n>>> VEZ DA ELEVEN 👧🏻") 
+					  } senao { 
+						  escreva("\n\n>>> VEZ DO WILL 🧒🏻") 
+					  }
+
+
+					
+            
+
+            faca{
+              escreva("\n1 - Jogar Dado | 0 - Desistir: ")
+					    leia(opcaoTurno)
+
+              limpa()
+
+              escolha(opcaoTurno){
+                caso 0:
+                  partidaAtiva = falso 
+                pare
+                
+                caso 1:
+                  se (vez == 1 e bloqueioP1 == verdadeiro) {
+                    escreva("\n 🕸️ Ah não! As vinhas do Mundo Invertido prenderam seus pés. ELEVEN está presa e perdeu a vez. 🕸️ ")
+                    bloqueioP1 = falso
+                    vez = 2
+						      }senao se (vez == 2 e bloqueioP2 == verdadeiro) {
+                    escreva("\n 👁️ Algo observa WILL na escuridão... O medo toma conta, ele se esconde e perde a vez. 👁️")
+                    bloqueioP2 = falso
+                    vez = 1
+						      }senao{
+                    dado = u.sorteia(1, 6)
+
+                    escreva("\n 🎲 Dado rolou: ", dado)
+
+                    se (vez == 1) {
+                      posicao1 = posicao1 + dado
+
+                      // --- REGRAS ELEVEN ---
+                      escolha(posicao1){
+
+                        caso 2:
+                          posicao1 = 5 escreva("\n 🚪[CASA 2] Um portal se abre! Avance para a casa 5. 🚪") 
+                        pare
+
+                                                
+                        caso 3:
+                          posicao1 = posicao1 + u.sorteia(1, 3) escreva("\n 🍀 [CASA 3] Poder encontrado! ELEVEN recebeu um dado de 3 lados. 🍀") 
+                        pare
+
+                                                
+                        caso 7:
+                          bloqueioP1 = verdadeiro escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
+                        pare
+
+                                                
+                        caso 10:
+                          inteiro t = posicao1 
+									        posicao1 = posicao2 
+									        posicao2 = t 
+									        escreva("\n 🔄 [CASA 10] Anomalia! ELEVEN e WILL trocam de posicão. 🔄") 
+                        pare
+
+                                                
+                        caso 12:
+                          posicao1 = posicao1 - 2 escreva("\n ⚡ [CASA 12] Perigo a frente! Volte 2 casas. ⚡")
+                        pare
+
+                                                
+                        caso 15:
+                          escreva("\n 🎸[CASA 15] Hora do show! Cante uma música da trilha sonora ou digite 0 para voltar duas casas. 🎸")
+									        leia(m)
+									          se (m == 0) { posicao1 = posicao1 - 2 }
+                        pare
+
+                                                
+                        caso 19:
+                          posicao1 = 1 escreva("\n 👾[CASA 19] Ah não! Os demogorgons pegaram ELEVEN e ela está de volta ao inicio! 👾") 
+                        pare
+
+                                                
+                        caso 22:
+                          posicao1 = 11 escreva("\n 🎰 [CASA 22] Que azar! Caminho errado. Volte metade do caminho. 🎰")
+                        pare
+                      }
+
+                      se (posicao1 >= 25) { 
+                        escreva("\n ELEVEN 👧🏻 VENCEU!") 
+                        vitoriasEleven = vitoriasEleven + 1 
+                        partidaAtiva = falso 
+                      } senao { 
+                        vez = 2 
+                      }
+                    }senao{
+                      //REGRA DO WILL
+                      posicao2 = posicao2 + dado
+                      escolha(posicao2){
+
+                        caso 2:
+                          posicao2 = 5 escreva("\n[CASA 2] Atalho!Eleven usou a mente e te jogou pra casa 5!") 
+                        pare
+
+                                                
+                        caso 3:
+                          posicao2 = posicao2 + u.sorteia(1, 3) escreva("\n[CASA 3] O grupo te ajudou! Role mais um dado pequeno de 3 lados...") 
+                        pare
+
+                                                
+                        caso 7:
+                          bloqueioP2 = verdadeiro escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
+                        pare
+
+                                                
+                        caso 10:
+                          inteiro t = posicao2
+									        posicao2 = posicao1 
+									        posicao1 = t 
+									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar do Will e ele veio pro seu!") 
+                        pare
+
+                                                
+                        caso 12:
+                          posicao2 = posicao2 - 2 escreva("\n[CASA 12] Badaladas de relógio... O Vecna te marcou. Recue 2 casas agora!")
+                        pare
+
+                                                
+                        caso 15:
+                          escreva("\n[CASA 15] Cante ou digite 0 para voltar 2: ")
+									        leia(m)
+									          se (m == 0) { 
+                              posicao2 = posicao2 - 2 
+                            }
+                        pare
+
+                                                
+                        caso 19:
+                          posicao2 = 1 escreva("\n[CASA 19] Volte ao início!") 
+                        pare
+
+                                                
+                        caso 22:
+                          posicao2 = 11 escreva("\n[CASA 22] Relógio de Vecna! Volte metade do caminho")
+                        pare
+                      }
+
+                      se (posicao2 >= 25) { 
+                        escreva("\nWILL VENCEU!") 
+                        vitoriasWill = vitoriasWill + 1 
+                        partidaAtiva = falso 
+								      }senao { vez = 1 }
+                    } 
+                  }
+                pare
+
+                caso contrario:
+                  escreva("Digite um número valido, sendo 1 ou 0\n")
+              }
+            }enquanto(opcaoTurno != 1 e opcaoTurno != 0)
+
+          }
+
+        pare
+
+        caso 2:
+          escreva("\n=== PLACAR GERAL ===")
+          escreva("\nEleven: ", vitoriasEleven)
+          escreva("\nWill: ", vitoriasWill, "\n")
+        pare
+
+        caso 3:
+          escreva("\nPortal fechado! FIM DE JOGO!")
+        pare
+
+        caso contrario:
+          escreva("Digite um número valido")
+      }
+    }enquanto(opcaoMenu != 3)
+  }
+}
