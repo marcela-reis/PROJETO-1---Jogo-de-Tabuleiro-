@@ -27,7 +27,7 @@ programa {
 
             para (inteiro i = 1; i <= 25; i++) {
               se (i == posicao1 e i == posicao2) {
-                escreva("[Eleven e Will]") 
+                escreva("[ELEVEN E WILL]") 
               }
               senao se (i == posicao1) { 
                 escreva("[ELEVEN]") 
