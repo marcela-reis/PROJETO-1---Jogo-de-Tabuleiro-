@@ -17,7 +17,7 @@ programa {
 
       escolha(opcaoMenu){
         caso 1:
-          inteiro posicao1 = 1, posicao2 = 1, vez = 1, dado, opcaoTurno, m
+          inteiro posicao1 = 1, posicao2 = 1, vez = 1, dado, opcaoTurno, m, resposta
 				  logico partidaAtiva = verdadeiro
 				  logico bloqueioP1 = falso, bloqueioP2 = falso
           
@@ -120,9 +120,67 @@ programa {
                         pare
 
                                                 
-                        caso 22:
-                          posicao1 = 11 escreva("\n[CASA 22] Relógio de Vecna! Volte metade do caminho")
+                        caso 20:
+                          posicao1 = 10 escreva("\n[CASA 20] Relógio de Vecna! Volte metade do caminho")
                         pare
+
+                        caso 21:
+                          escreva("\n[CASA 21] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ] Qual personagem toca guitarra no Hellfire CLub? \n1 - Mike \n2 - Eddie")
+                            leia(resposta)
+                              se(resposta != 2)
+                              {
+                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
+                        caso 22:
+                          escreva("\n[CASA 22] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ] Qual personagem trabalha na sorveteria junto de Steve? \n1 - Nancy \n2 - Robin")
+                            leia(resposta)
+                              se(resposta != 2)
+                              {
+                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
+                        caso 23:
+                          escreva("\n[CASA 23] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ] Qual criatura aparece na 1º temporada? \n1 - Deogorgon \n2 - Devorador de Mentes")
+                            leia(resposta)
+                              se(resposta != 1)
+                              {
+                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
+                        caso 24:
+                          escreva("\n[CASA 24] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ] Qual personagem recebe poderes na ultima temporada? \n1 - Joyce \n2 - Will")
+                            leia(resposta)
+                              se(resposta != 2)
+                              {
+                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
+
                       }
 
                       se (posicao1 >= 25) { 
@@ -179,9 +237,66 @@ programa {
                         pare
 
                                                 
-                        caso 22:
-                          posicao2 = 11 escreva("\n[CASA 22] Relógio de Vecna! Volte metade do caminho")
+                        caso 20:
+                          posicao2 = 10 escreva("\n[CASA 20] Relógio de Vecna! Volte metade do caminho")
                         pare
+
+                        caso 21:
+                          escreva("\n[CASA 21] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ] Quais são os poderes de Eleven? \n1 - Telepatia \n2 - Invisbilidade")
+                            leia(resposta)
+                              se(resposta != 1)
+                              {
+                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
+                        caso 22:
+                          escreva("\n[CASA 22] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ] Que personagem entra para o grupo na 2º temporada? \n1 - Lucas \n2 - Max")
+                            leia(resposta)
+                              se(resposta != 2)
+                              {
+                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
+                        caso 23:
+                          escreva("\n[CASA 23] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ] Na 4º temporada, quem é o vilão principal?  \n1 - Devorador de mentes \n2 - Vecna")
+                            leia(resposta)
+                              se(resposta != 2)
+                              {
+                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
+                        caso 24:
+                          escreva("\n[CASA 24] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
+                            escreva("\n[QUIZ]Qual personagem adota Eleven na segunda temporada? \n1 - Jim Hopper \n2 - Dr. Brenner")
+                            leia(resposta)
+                              se(resposta != 1)
+                              {
+                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
+                              }
+                              senao
+                              {
+                                escreva("Mandou bem!!!")
+                              }
+                        pare
+
                       }
 
                       se (posicao2 >= 25) { 
