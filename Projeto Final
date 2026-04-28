@@ -214,7 +214,7 @@ programa {
                           inteiro t = posicao2
 									        posicao2 = posicao1 
 									        posicao1 = t 
-									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar do Will e ele veio pro seu!") 
+									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar da Eleven e ela veio pro seu!") 
                         pare
 
                                                 
