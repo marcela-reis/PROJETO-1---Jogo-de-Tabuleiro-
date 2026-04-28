@@ -154,7 +154,7 @@ programa {
 
                         caso 23:
                           escreva("\n[CASA 23] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Qual criatura aparece na 1º temporada? \n1 - Deogorgon \n2 - Devorador de Mentes")
+                            escreva("\n[QUIZ] Qual criatura aparece na 1º temporada? \n1 - Demogorgon \n2 - Devorador de Mentes")
                             leia(resposta)
                               se(resposta != 1)
                               {
