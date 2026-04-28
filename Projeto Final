@@ -109,9 +109,18 @@ programa {
 
                                                 
                         caso 15:
-                          escreva("\n[CASA 15] Cante ou digite 0 para voltar 2: ")
-									        leia(m)
-									          se (m == 0) { posicao1 = posicao1 - 2 }
+                         faca{
+                             escreva("\n[CASA 15] Cante ou digite 0 para voltar 2 casas: ")
+									          leia(m)
+                            se (m != 0 e m != 1){
+                              escreva("Opção inválida!Digite 1 para cantar ou 0 para voltar 2 casas: ")
+                            }
+                           
+                          }enquanto (m  != 0 e m != 1)
+                               
+									          se (m == 0) { 
+                              posicao1 = posicao1 - 2 
+                            }
                         pare
 
                                                 
@@ -214,7 +223,7 @@ programa {
                           inteiro t = posicao2
 									        posicao2 = posicao1 
 									        posicao1 = t 
-									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar do Will e ele veio pro seu!") 
+									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar da Eleven e ela veio pro seu!") 
                         pare
 
                                                 
