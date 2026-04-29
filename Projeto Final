@@ -1,351 +1,336 @@
 programa {
-	inclua biblioteca Util --> u
+ inclua biblioteca Util --> u
 
-  funcao inicio() {
-    inteiro vitoriasEleven = 0, vitoriasWill = 0
-		inteiro opcaoMenu = 0
+ funcao inicio() {
+   inteiro vitoriasEleven = 0, vitoriasWill = 0
+   inteiro opcaoMenu = 0
 
-    faca{
-      escreva("\n-------------------------------------")
-			escreva("\n    >>>>> FUGA DO MUNDO INVERTIDO <<<<<")
-			escreva("\n-------------------------------------")
-			escreva("\n1. Jogar Partida")
-			escreva("\n2. Verificar Placar")
-			escreva("\n3. Fechar o jogo")
-			escreva("\nEscolha: ")
-			leia(opcaoMenu)
+   faca{
+     escreva("\n-------------------------------------")
 
-      escolha(opcaoMenu){
-        caso 1:
-          inteiro posicao1 = 1, posicao2 = 1, vez = 1, dado, opcaoTurno, m, resposta
-				  logico partidaAtiva = verdadeiro
-				  logico bloqueioP1 = falso, bloqueioP2 = falso
-          
-          enquanto(partidaAtiva){
-            escreva("\n--- TRILHA DE HAWKINS ---\n")
+     escreva("\n    >>>>>🌌🕙 STRANGER THINGS – FUGA DO MUNDO INVERTIDO 🌌🕙<<<<< ")
+     escreva("\n-------------------------------------")
+     escreva("\n1. Jogar Partida")
+     escreva("\n2. Verificar Placar")
+     escreva("\n3. Fechar o jogo")
+     escreva("\nEscolha: ")
+     leia(opcaoMenu)
 
-            para (inteiro i = 1; i <= 25; i++) {
-              se (i == posicao1 e i == posicao2) {
-                escreva("[Eleven e Will]") 
-              }
-              senao se (i == posicao1) { 
-                escreva("[Eleven]") 
-              }
-              senao se (i == posicao2) {
-                escreva("[Will]") 
-              }
-              senao {
-                escreva("[ ", i, " ]") 
-              }
-					  }
+     escolha(opcaoMenu){
+       caso 1:
+         inteiro posicao1 = 1, posicao2 = 1, vez = 1, dado, opcaoTurno, musica, resposta
+         logico partidaAtiva = verdadeiro
+         logico bloqueioP1 = falso, bloqueioP2 = falso
+         
+         enquanto(partidaAtiva){
+           escreva("  \n ⏳  ----- TRILHA DO MUNDO INVERTIDO -----  ⏳️\n")
 
-            se (vez == 1) { 
-						  escreva("\n\n>>> VEZ DA ELEVEN") 
-					  } senao { 
-						  escreva("\n\n>>> VEZ DO WILL") 
-					  }
+           para (inteiro contador= 1; contador <= 25; contador++) {
+             se (contador == posicao1 e contador == posicao2) {
+               escreva("[ELEVEN E WILL]") 
+             }
+             senao se (contador == posicao1) { 
+               escreva("[ELEVEN]") 
+             }
+             senao se (contador == posicao2) {
+               escreva("[WILL]") 
+             }
+             senao {
+               escreva("[ ", contador, " ]") 
+             }
+           }
 
+           se (vez == 1) { 
+             escreva("\n\n>>> VEZ DA ELEVEN 👧🏻") 
+           } senao { 
+             escreva("\n\n>>> VEZ DO WILL 🧒🏻") 
+           }
 
-					
-            
+           faca{
+             escreva("\n1 - Jogar Dado | 0 - Desistir: ")
+             leia(opcaoTurno)
 
-            faca{
-              escreva("\n1 - Jogar Dado | 0 - Desistir: ")
-					    leia(opcaoTurno)
+             limpa()
 
-              limpa()
+             escolha(opcaoTurno){
+               caso 0:
+                 partidaAtiva = falso 
+               pare
+               
+               caso 1:
+                 se (vez == 1 e bloqueioP1 == verdadeiro) {
+                   escreva("\n 🕸️ Ah não! As vinhas do Mundo Invertido prenderam os pés de ELEVEN. Ela está presa e perdeu a vez. 🕸️ ")
+                   bloqueioP1 = falso
+                   vez = 2
+                 }
+                 senao se (vez == 2 e bloqueioP2 == verdadeiro) {
+                   escreva("\n 👁️ Algo observa WILL na escuridão... O medo toma conta, ele se esconde e perde a vez. 👁️")
+                   bloqueioP2 = falso
+                   vez = 1
+                 }
+                 senao{
+                   dado = u.sorteia(1, 6)
 
-              escolha(opcaoTurno){
-                caso 0:
-                  partidaAtiva = falso 
-                pare
-                
-                caso 1:
-                  se (vez == 1 e bloqueioP1 == verdadeiro) {
-                    escreva("\nEleven está presa! Perdeu a vez.")
-                    bloqueioP1 = falso
-                    vez = 2
-						      }senao se (vez == 2 e bloqueioP2 == verdadeiro) {
-                    escreva("\nWill está escondido! Perdeu a vez.")
-                    bloqueioP2 = falso
-                    vez = 1
-						      }senao{
-                    dado = u.sorteia(1, 6)
+                   escreva("\n 🎲 Dado rolou: ", dado)
 
-                    escreva("\nDado rolou: ", dado)
+                   se (vez == 1) {
+                     posicao1 = posicao1 + dado
 
-                    se (vez == 1) {
-                      posicao1 = posicao1 + dado
+                     escolha(posicao1){
 
-                      // --- REGRAS ELEVEN ---
-                      escolha(posicao1){
+                       caso 2:
+                         posicao1 = 5
+                         escreva("\n 🚪[CASA 2] Um portal se abre! Avance para a casa 5. 🚪") 
+                       pare
 
-                        caso 2:
-                          posicao1 = 5 escreva("\n[CASA 2] Atalho!Eleven usou a mente e te jogou pra casa 5!") 
-                        pare
+                       caso 3:
+                         posicao1 = posicao1 + u.sorteia(1, 3)
+                         escreva("\n 🍀 [CASA 3]  Que sorte! Poder encontrado: ELEVEN recebeu um dado de 3 lados. 🍀") 
+                       pare
 
-                                                
-                        caso 3:
-                          posicao1 = posicao1 + u.sorteia(1, 3) escreva("\n[CASA 3] O grupo te ajudou! Role mais um dado pequeno de 3 lados...") 
-                        pare
+                       caso 7:
+                         bloqueioP1 = verdadeiro
+                         escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
+                       pare
 
-                                                
-                        caso 7:
-                          bloqueioP1 = verdadeiro escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
-                        pare
+                       caso 10:
+                         inteiro temporario = posicao1 
+                         posicao1 = posicao2 
+                         posicao2 = temporario
+                         escreva("\n 🔄 [CASA 10] Anomalia! ELEVEN e WILL trocam de posicão. 🔄") 
+                       pare
 
-                                                
-                        caso 10:
-                          inteiro t = posicao1 
-									        posicao1 = posicao2 
-									        posicao2 = t 
-									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar do Will e ele veio pro seu!") 
-                        pare
+                       caso 12:
+                         posicao1 = posicao1 - 2
+                         escreva("\n ⚡ [CASA 12] Perigo a frente! Volte 2 casas. ⚡")
+                       pare
 
-                                                
-                        caso 12:
-                          posicao1 = posicao1 - 2 escreva("\n[CASA 12] Badaladas de relógio... O Vecna te marcou. Recue 2 casas agora!")
-                        pare
+                       caso 15: 
+                         faca {
+                           escreva("\n 🎸[CASA 15] Hora do show! Cante uma música da trilha sonora ou volte duas casas. 🎸" )
+                           escreva ("\n Digite [1] para cantar ou [0] para voltar duas casas.")
+                           leia(musica)
+                           se (musica != 0 e musica != 1) {
+                             escreva ("Opção inválida! Digite 1 para cantar ou 0 para voltar duas casas.") 
+                           }
+                         } enquanto (musica != 0 e musica != 1)
 
-                                                
-                        caso 15:
-                         faca{
-                             escreva("\n[CASA 15] Cante ou digite 0 para voltar 2 casas: ")
-									          leia(m)
-                            se (m != 0 e m != 1){
-                              escreva("Opção inválida!Digite 1 para cantar ou 0 para voltar 2 casas: ")
-                            }
-                           
-                          }enquanto (m  != 0 e m != 1)
-                               
-									          se (m == 0) { 
-                              posicao1 = posicao1 - 2 
-                            }
-                        pare
+                         se (musica ==0) { posicao1 = posicao1 - 2 }
+                       pare
 
-                                                
-                        caso 19:
-                          posicao1 = 1 escreva("\n[CASA 19] Volte ao início!") 
-                        pare
+                       caso 19:
+                         posicao1 = 1
+                         escreva("\n 👾[CASA 19] Ah não! Os demogorgons pegaram ELEVEN e ela está de volta ao inicio! 👾") 
+                       pare
+ 
+                       caso 20:
+                         posicao1 = 10
+                         escreva ("\n  🕰️ [CASA 20 ] Relógio do VECNA! Volte metade do caminho 🕰️")
+                       pare
+                       
+                       caso 21:
+                         escreva ("\n🧠 [CASA 21] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Qual personagem toca guitarra no Hellfire Club? \n 1- Mike \n 2- Eddie")
+                         leia (resposta)
+                         se (resposta !=2) {
+                           posicao1 = posicao1 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
 
-                                                
-                        caso 20:
-                          posicao1 = 10 escreva("\n[CASA 20] Relógio de Vecna! Volte metade do caminho")
-                        pare
+                       caso 22:
+                         escreva ("\n🧠 [CASA 22] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Qual personagem trabalha na sorveteria junto de Steve? \n 1- Nancy \n 2-Robin")
+                         leia (resposta)
+                         se (resposta !=2) {
+                           posicao1 = posicao1 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
 
-                        caso 21:
-                          escreva("\n[CASA 21] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Qual personagem toca guitarra no Hellfire CLub? \n1 - Mike \n2 - Eddie")
-                            leia(resposta)
-                              se(resposta != 2)
-                              {
-                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                       caso 23:
+                         escreva ("\n🧠 [CASA 23] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Qual criatura aparece na primeira temporada? \n 1- Demogorgon \n 2- Devorador de mentes")
+                         leia (resposta)
+                         se (resposta !=1) {
+                           posicao1 = posicao1 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
 
-                        caso 22:
-                          escreva("\n[CASA 22] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Qual personagem trabalha na sorveteria junto de Steve? \n1 - Nancy \n2 - Robin")
-                            leia(resposta)
-                              se(resposta != 2)
-                              {
-                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                       caso 24:
+                         escreva ("\n🧠 [CASA 24] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Qual personagem recebe poderes na última temporada? \n 1- Joyce \n 2- Will")
+                         leia (resposta)
+                         se (resposta !=2) {
+                           posicao1 = posicao1 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
+                     }
 
-                        caso 23:
-                          escreva("\n[CASA 23] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Qual criatura aparece na 1º temporada? \n1 - Demogorgon \n2 - Devorador de Mentes")
-                            leia(resposta)
-                              se(resposta != 1)
-                              {
-                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                     se (posicao1 >= 25) { 
+                       escreva("\n Parabéns! ELEVEN 👧🏻 conseguiu escapar do mundo invertido e é a grande vencedora! 🏆 ") 
+                       vitoriasEleven = vitoriasEleven + 1 
+                       partidaAtiva = falso 
+                     } senao { 
+                       vez = 2 
+                     }
+                   }
 
-                        caso 24:
-                          escreva("\n[CASA 24] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Qual personagem recebe poderes na ultima temporada? \n1 - Joyce \n2 - Will")
-                            leia(resposta)
-                              se(resposta != 2)
-                              {
-                                posicao1 = posicao1 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                   senao{
+                     posicao2 = posicao2 + dado
 
+                     escolha(posicao2){
 
-                      }
+                       caso 2:
+                         posicao2 = 5
+                         escreva("\n 🚪[CASA 2] Um portal se abre! Avance para a casa 5.🚪") 
+                       pare
 
-                      se (posicao1 >= 25) { 
-                        escreva("\nELEVEN VENCEU!") 
-                        vitoriasEleven = vitoriasEleven + 1 
-                        partidaAtiva = falso 
-                      } senao { 
-                        vez = 2 
-                      }
-                    }senao{
-                      //REGRA DO WILL
-                      posicao2 = posicao2 + dado
-                      escolha(posicao2){
+                       caso 3:
+                         posicao2 = posicao2 + u.sorteia(1, 3)
+                         escreva("\n 🍀[CASA 3] Que sorte! Poder encontrado: WILL recebeu um dado de 3 lados. 🍀") 
+                       pare
 
-                        caso 2:
-                          posicao2 = 5 escreva("\n[CASA 2] Atalho!Eleven usou a mente e te jogou pra casa 5!") 
-                        pare
+                       caso 7:
+                         bloqueioP2 = verdadeiro
+                         escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
+                       pare
 
-                                                
-                        caso 3:
-                          posicao2 = posicao2 + u.sorteia(1, 3) escreva("\n[CASA 3] O grupo te ajudou! Role mais um dado pequeno de 3 lados...") 
-                        pare
+                       caso 10:
+                         inteiro temporario= posicao2
+                         posicao2 = posicao1 
+                         posicao1 = temporario 
+                         escreva("\n 🔄 [CASA 10] Anomalia! ELEVEN e WILL trocam de posição. 🔄") 
+                       pare
 
-                                                
-                        caso 7:
-                          bloqueioP2 = verdadeiro escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
-                        pare
+                       caso 12:
+                         posicao2 = posicao2 - 2
+                         escreva("\n ⚡ [CASA 12] Perigo a frente! Volte 2 casas. ⚡")
+                       pare
 
-                                                
-                        caso 10:
-                          inteiro t = posicao2
-									        posicao2 = posicao1 
-									        posicao1 = t 
-									        escreva("\n[CASA 10] O mundo girou... você foi pro lugar da Eleven e ela veio pro seu!") 
-                        pare
+                       caso 15:
+                         faca {
+                           escreva("\n 🎸[CASA 15] Hora do show! Cante uma música da trilha sonora ou volte duas casas. 🎸" )
+                           escreva ("\n Digite [1] para cantar ou [0] para voltar duas casas.")
+                           leia(musica)
+                           se (musica != 0 e musica != 1) { 
+                             escreva ("Opção inválida! Digite 1 para cantar ou 0 para voltar 2 casas.")
+                           } 
+                         } enquanto (musica != 0 e musica !=1)
 
-                                                
-                        caso 12:
-                          posicao2 = posicao2 - 2 escreva("\n[CASA 12] Badaladas de relógio... O Vecna te marcou. Recue 2 casas agora!")
-                        pare
+                         se (musica == 0) {
+                           posicao2 = posicao2 - 2
+                         }
+                       pare
 
-                                                
-                        caso 15:
-                          faca{
-                             escreva("\n[CASA 15] Cante ou digite 0 para voltar 2 casas: ")
-									          leia(m)
-                            se (m != 0 e m != 1){
-                              escreva("Opção inválida!Digite 1 para cantar ou 0 para voltar 2 casas: ")
-                            }
-                           
-                          }enquanto (m  != 0 e m != 1)
-                               
-									          se (m == 0) { 
-                              posicao2 = posicao2 - 2 
-                            }
-                        pare
+                       caso 19:
+                         posicao2 = 1
+                         escreva("\n 👾 [CASA 19] Ah não! Os demogorgons pegaram WILL e ele está de volta ao inicio! 👾") 
+                       pare
 
-                                                
-                        caso 19:
-                          posicao2 = 1 escreva("\n[CASA 19] Volte ao início!") 
-                        pare
+                       caso 20:
+                         posicao2 = 10
+                         escreva ("\n 🕰️ [CASA 20 ] Relógio do VECNA! Volte metade do caminho 🕰️")
+                       pare
 
-                                                
-                        caso 20:
-                          posicao2 = 10 escreva("\n[CASA 20] Relógio de Vecna! Volte metade do caminho")
-                        pare
+                       caso 21:
+                         escreva ("\n🧠 [CASA 21] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Quais são os poderes de Eleven? \n 1- Telepatia \n 2- Invisibilidade")
+                         leia (resposta)
+                         se (resposta !=1) {
+                           posicao2 = posicao2 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
 
-                        caso 21:
-                          escreva("\n[CASA 21] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Quais são os poderes de Eleven? \n1 - Telepatia \n2 - Invisbilidade")
-                            leia(resposta)
-                              se(resposta != 1)
-                              {
-                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                       caso 22:
+                         escreva ("\n🧠 [CASA 22] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Que personagem entra para o grupo na segunda temporada? \n 1- Lucas \n 2- Max")
+                         leia (resposta)
+                         se (resposta !=2) {
+                           posicao2 = posicao2 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
 
-                        caso 22:
-                          escreva("\n[CASA 22] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Que personagem entra para o grupo na 2º temporada? \n1 - Lucas \n2 - Max")
-                            leia(resposta)
-                              se(resposta != 2)
-                              {
-                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                       caso 23:
+                         escreva ("\n🧠 [CASA 23] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Na quarta temporada, quem é o vilão principal? \n 1- Devorador de mentes \n 2- Vecna")
+                         leia (resposta)
+                         se (resposta !=2) {
+                           posicao2 = posicao2 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
 
-                        caso 23:
-                          escreva("\n[CASA 23] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ] Na 4º temporada, quem é o vilão principal?  \n1 - Devorador de mentes \n2 - Vecna")
-                            leia(resposta)
-                              se(resposta != 2)
-                              {
-                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                       caso 24:
+                         escreva ("\n🧠 [CASA 24] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
+                         escreva ("\n [QUIZ] Qual personagem adota Eleven na segunda temporada? \n 1- Jim Hopper \n 2- Dr. Benner")
+                         leia (resposta)
+                         se (resposta !=1) {
+                           posicao2 = posicao2 - 5
+                           escreva ("\n Droga! Sua mente foi capturada. Volte 5 casas.")
+                         }
+                         senao {
+                           escreva ("Mandou bem!!!")
+                         }
+                       pare
+                     }
 
-                        caso 24:
-                          escreva("\n[CASA 24] Hora do quiz, daqui para frente responda ou tenha a mente devorada")
-                            escreva("\n[QUIZ]Qual personagem adota Eleven na segunda temporada? \n1 - Jim Hopper \n2 - Dr. Brenner")
-                            leia(resposta)
-                              se(resposta != 1)
-                              {
-                                posicao2 = posicao2 - 5 escreva("\nDroga sua o Vecna capturou sua mente, volte 5 CASAS.")
-                              }
-                              senao
-                              {
-                                escreva("Mandou bem!!!")
-                              }
-                        pare
+                     se (posicao2 >= 25) { 
+                       escreva("\n Parabéns! WILL 🧒🏻 conseguiu escapar do mundo invertido e é o grande vencedor! 🏆") 
+                       vitoriasWill = vitoriasWill + 1 
+                       partidaAtiva = falso 
+                     } senao { vez = 1 }
+                   } 
+                 }
+               pare
 
-                      }
+               caso contrario:
+                 escreva("Digite um número valido, sendo 1 ou 0\n")
+             }
+           }enquanto(opcaoTurno != 1 e opcaoTurno != 0)
 
-                      se (posicao2 >= 25) { 
-                        escreva("\nWILL VENCEU!") 
-                        vitoriasWill = vitoriasWill + 1 
-                        partidaAtiva = falso 
-								      }senao { vez = 1 }
-                    } 
-                  }
-                pare
+         }
 
-                caso contrario:
-                  escreva("Digite um número valido, sendo 1 ou 0\n")
-              }
-            }enquanto(opcaoTurno != 1 e opcaoTurno != 0)
+       pare
 
-          }
+       caso 2:
+         escreva("\n 🎮 === PLACAR GERAL === 🎮")
+         escreva("\n ELEVEN 👧🏻: ", vitoriasEleven)
+         escreva("\n WILL 🧒🏻: ", vitoriasWill, "\n")
+       pare
 
-        pare
+       caso 3:
+         escreva("\n 🕰️ PORTAL FECHADO! FIM DE JOGO! 🕰️")
+       pare
 
-        caso 2:
-          escreva("\n=== PLACAR GERAL ===")
-          escreva("\nEleven: ", vitoriasEleven)
-          escreva("\nWill: ", vitoriasWill, "\n")
-        pare
-
-        caso 3:
-          escreva("\nPortal fechado! FIM DE JOGO!")
-        pare
-
-        caso contrario:
-          escreva("Digite um número valido")
-      }
-    }enquanto(opcaoMenu != 3)
-  }
+       caso contrario:
+         escreva("Digite um número valido! ")
+     }
+   }enquanto(opcaoMenu != 3)
+ }
 }
