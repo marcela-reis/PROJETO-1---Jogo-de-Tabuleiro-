@@ -4,7 +4,9 @@ programa {
  funcao inicio() {
 //variavel de controle de vitorias e de menu
    inteiro vitoriasEleven = 0, vitoriasWill = 0
-   inteiro opcaoMenu = 0
+
+// Controla a navegação no menu principal
+inteiro opcaoMenu = 0
 
 //menu de opções inicial 
    faca{
@@ -19,6 +21,8 @@ programa {
      leia(opcaoMenu)
 
      escolha(opcaoMenu){
+
+  //Iniciar partida
        caso 1:
          inteiro posicao1 = 1, posicao2 = 1, vez = 1, dado, opcaoTurno, musica, resposta
          logico partidaAtiva = verdadeiro
