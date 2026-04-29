@@ -2,9 +2,11 @@ programa {
  inclua biblioteca Util --> u
 
  funcao inicio() {
+//variavel de controle de vitorias e de menu
    inteiro vitoriasEleven = 0, vitoriasWill = 0
    inteiro opcaoMenu = 0
 
+//menu de opções inicial 
    faca{
      escreva("\n--------------------------------------------------------------------")
 
@@ -21,10 +23,12 @@ programa {
          inteiro posicao1 = 1, posicao2 = 1, vez = 1, dado, opcaoTurno, musica, resposta
          logico partidaAtiva = verdadeiro
          logico bloqueioP1 = falso, bloqueioP2 = falso
-         
+
+   
          enquanto(partidaAtiva){
            escreva("  \n ⏳  ----- TRILHA DO MUNDO INVERTIDO -----  ⏳️\n")
 
+// desenho do tabuleiro 
            para (inteiro contador= 1; contador <= 25; contador++) {
              se (contador == posicao1 e contador == posicao2) {
                escreva("[ELEVEN E WILL]") 
@@ -45,18 +49,19 @@ programa {
            } senao { 
              escreva("\n\n>>> VEZ DO WILL 🧒🏻") 
            }
-
+//opção de jogar dado e desistir da partida
            faca{
              escreva("\n1 - Jogar Dado | 0 - Desistir: ")
              leia(opcaoTurno)
-
+//a cada jogada limpa a jogada anterior 
              limpa()
 
              escolha(opcaoTurno){
                caso 0:
                  partidaAtiva = falso 
                pare
-               
+
+  //escolha e caso para construir a regra 7, onde o jogador que cair nela fica uma vez sem jogar
                caso 1:
                  se (vez == 1 e bloqueioP1 == verdadeiro) {
                    escreva("\n 🕸️ Ah não! As vinhas do Mundo Invertido prenderam os pés de ELEVEN. Ela está presa e perdeu a vez. 🕸️ ")
@@ -72,12 +77,12 @@ programa {
                    dado = u.sorteia(1, 6)
 
                    escreva("\n 🎲 Dado rolou: ", dado)
-
+//movimento dos jogadores com base no número do dado
                    se (vez == 1) {
                      posicao1 = posicao1 + dado
 
                      escolha(posicao1){
-
+// regras especiais:
                        caso 2:
                          posicao1 = 5
                          escreva("\n 🚪[CASA 2] Um portal se abre! Avance para a casa 5. 🚪") 
@@ -94,6 +99,7 @@ programa {
                        pare
 
                        caso 10:
+  // declaração da variavel temporario onde ela recebe a posição do jogador temporariamente para fazer a troca 
                          inteiro temporario = posicao1 
                          posicao1 = posicao2 
                          posicao2 = temporario
@@ -104,7 +110,7 @@ programa {
                          posicao1 = posicao1 - 2
                          escreva("\n ⚡ [CASA 12] Perigo a frente! Volte 2 casas. ⚡")
                        pare
-
+// variavel musica usada para ler a opção que o jogador escolher e se diferente do pedido acusa inválido  
                        caso 15: 
                          faca {
                            escreva("\n 🎸[CASA 15] Hora do show! Cante uma música da trilha sonora ou volte duas casas. 🎸" )
@@ -127,7 +133,8 @@ programa {
                          posicao1 = 10
                          escreva ("\n  🕰️ [CASA 20 ] Relógio do VECNA! Volte metade do caminho 🕰️")
                        pare
-                       
+
+  // casas de quiz, cada jogador em cada casa tem uma pergunta diferente, não repete a pergunta para os dois jogadores, casa 21 a 24
                        caso 21:
                          escreva ("\n🧠 [CASA 21] Hora do quiz! Daqui para frente, responda ou tenha sua mente devorada pelo VECNA! 🧠")
                          escreva ("\n [QUIZ] Qual personagem toca guitarra no Hellfire Club? \n 1- Mike \n 2- Eddie")
@@ -181,6 +188,7 @@ programa {
                        pare
                      }
 
+  //vitoria!! quando chegar em 25, jogador vence e a partida ativa fica falso terminando a partida 
                      se (posicao1 >= 25) { 
                        escreva("\n Parabéns! ELEVEN 👧🏻 conseguiu escapar do mundo invertido e é a grande vencedora! 🏆 ") 
                        vitoriasEleven = vitoriasEleven + 1 
@@ -313,11 +321,12 @@ programa {
                  escreva("Digite um número valido, sendo 1 ou 0\n")
              }
            }enquanto(opcaoTurno != 1 e opcaoTurno != 0)
-
+// final da partida 
          }
 
        pare
 
+// variavel de vitoria recebe 1 a cada partida vencida e mostra acumulada aqui: 
        caso 2:
          escreva("\n 🎮 === PLACAR GERAL === 🎮")
          escreva("\n ELEVEN 👧🏻: ", vitoriasEleven)
