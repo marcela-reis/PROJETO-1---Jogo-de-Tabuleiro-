@@ -1,4 +1,4 @@
-                                    PROJETO 1 - TRILHA DE HAWKINS
+                                    PROJETO 1 - STRANGER THINGS – FUGA DO MUNDO INVERTIDO
 
 __________ SOBRE __________
 
