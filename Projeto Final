@@ -6,10 +6,10 @@ programa {
    inteiro opcaoMenu = 0
 
    faca{
-     escreva("\n-------------------------------------")
+     escreva("\n--------------------------------------------------------------------")
 
      escreva("\n    >>>>>🌌🕙 STRANGER THINGS – FUGA DO MUNDO INVERTIDO 🌌🕙<<<<< ")
-     escreva("\n-------------------------------------")
+     escreva("\n--------------------------------------------------------------------")
      escreva("\n1. Jogar Partida")
      escreva("\n2. Verificar Placar")
      escreva("\n3. Fechar o jogo")
