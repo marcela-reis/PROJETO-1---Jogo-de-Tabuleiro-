@@ -99,7 +99,7 @@ inteiro opcaoMenu = 0
 
                        caso 7:
                          bloqueioP1 = verdadeiro
-                         escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
+                         escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fique parado aí para ele não te pegar!") 
                        pare
 
                        caso 10:
@@ -219,7 +219,7 @@ inteiro opcaoMenu = 0
 
                        caso 7:
                          bloqueioP2 = verdadeiro
-                         escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fica parado aí pra ele não te pegar!") 
+                         escreva("\n[CASA 7] DROGA! O Demogorgon te viu. Fique parado aí para ele não te pegar!") 
                        pare
 
                        caso 10:
